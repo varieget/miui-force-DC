@@ -1,8 +1,9 @@
 #!/system/bin/sh
 MODDIR=${0%/*}
 
-DC_BACK_LIGHT=$(settings list system | grep dc_back_light)
 set_dc_backlight() {
+  DC_BACK_LIGHT=$(settings list system | grep dc_back_light)
+
   if [[ $DC_BACK_LIGHT == *"dc_back_light=1"* ]]; then
     resetprop 'persist.vendor.dc_backlight.enable' 'true'
     input keyevent 26
@@ -12,8 +13,8 @@ set_dc_backlight() {
 }
 
 {
-  # wait for boot completed
-  while [ "$(getprop sys.boot_completed)" != "1" ]; do
+  # wait for bootanim stopped
+  while [ "$(getprop init.svc.bootanim)" != "stopped" ]; do
     sleep 1
   done
 

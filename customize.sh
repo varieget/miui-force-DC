@@ -34,8 +34,6 @@ VERSION=$(grep_prop version "${TMPDIR}/module.prop")
 ui_print "- MIUI 强制开启 DC 调光"
 ui_print "- version ${VERSION}"
 
-extract "$ZIPFILE" 'customize.sh' "$TMPDIR"
-
 install_from_magisk_app
 
 extract "$ZIPFILE" 'module.prop' "$MODPATH"
