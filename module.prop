@@ -1,0 +1,7 @@
+id=io.varieget.miuiforcedc
+name=MIUI 强制开启 DC 调光
+version=v1.0.0
+versionCode=100
+author=varieget
+description=使得 设置 > 显示 > 屏幕 出现 “防闪烁模式” 开关选项，GitHub: https://github.com/varieget/miui-force-DC
+updateJson=https://varieget.github.io/miui-force-DC/releases/update.json
