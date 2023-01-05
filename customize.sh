@@ -1,16 +1,8 @@
-SKIPUNZIP=1
-
-# extract <zip> <file> <target dir>
-extract() {
-  zip=$1
-  file=$2
-  dir=$3
-
-  unzip -o "$zip" "$file" -d "$dir" >&2
-  [ -f "$dir/$file" ] || abort "$file not exists"
-
-  ui_print "- Extracting $file" >&1
-}
+# Extract from V14.0.22.12.8.DEV
+REPLACE="
+/system/vendor/lib/hw/displayfeature.default.so
+/system/vendor/lib64/hw/displayfeature.default.so
+"
 
 install_from_magisk_app() {
   if $BOOTMODE; then
@@ -35,9 +27,6 @@ ui_print "- MIUI 强制开启 DC 调光"
 ui_print "- version ${VERSION}"
 
 install_from_magisk_app
-
-extract "$ZIPFILE" 'module.prop' "$MODPATH"
-extract "$ZIPFILE" 'service.sh' "$MODPATH"
 
 mkdir -p $MODPATH/system/product/etc/device_features
 cp -rf /product/etc/device_features/* $MODPATH/system/product/etc/device_features
