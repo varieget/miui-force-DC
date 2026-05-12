@@ -38,3 +38,4 @@ for FILE in $(ls $MODPATH/system/product/etc/device_features/*); do
 done
 
 set_perm_recursive "$MODPATH" 0 0 0755 0644
+set_perm_recursive "$MODPATH/system/vendor" 0 0 0755 0644 "u:object_r:vendor_file:s0"
